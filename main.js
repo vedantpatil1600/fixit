@@ -1,3 +1,4 @@
+console.log("JS is working")
 import { supabase } from './supabase.js'
 
 async function getUsers() {
