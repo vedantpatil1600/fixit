@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIXit - Service Request</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="logo.png" alt="FIXit Logo" class="logo-img">
+                </div>
+                <nav class="nav-links">
+                    <a href="home.html">Home</a>
+                    <a href="service.html" class="active">Service</a>
+                    <a href="about.html">About Us</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="index.html">My Profile</a>
+                </nav>
+                <div class="nav-actions">
+                    <button class="btn btn-primary">Login</button>
+                    <button class="notification-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Service Request Form -->
+    <main class="main-content">
+        <div class="container">
+            <div class="service-form-container">
+                <h1>Request a Service</h1>
+                
+                <!-- Service Type Selection -->
+                <section class="form-section">
+                    <h2>Select Service Type</h2>
+                    <div class="service-types">
+                        <div class="service-option" onclick="selectServiceType('electrician')">
+                            <input type="radio" name="service" id="electrician" value="electrician">
+                            <label for="electrician">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                                <span>Electrician</span>
+                            </label>
+                        </div>
+                        <div class="service-option" onclick="selectServiceType('plumber')">
+                            <input type="radio" name="service" id="plumber" value="plumber">
+                            <label for="plumber">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                                <span>Plumber</span>
+                            </label>
+                        </div>
+                        <div class="service-option" onclick="selectServiceType('mechanic')">
+                            <input type="radio" name="service" id="mechanic" value="mechanic">
+                            <label for="mechanic">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                </svg>
+                                <span>Mechanic</span>
+                            </label>
+                        </div>
+                        <div class="service-option" onclick="selectServiceType('carpenter')">
+                            <input type="radio" name="service" id="carpenter" value="carpenter">
+                            <label for="carpenter">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <path d="M2 7v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2z"/>
+                                    <path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/>
+                                </svg>
+                                <span>Carpenter</span>
+                            </label>
+                        </div>
+                        <div class="service-option" onclick="selectServiceType('painter')">
+                            <input type="radio" name="service" id="painter" value="painter">
+                            <label for="painter">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                                </svg>
+                                <span>Painter</span>
+                            </label>
+                        </div>
+                        <div class="service-option" onclick="selectServiceType('cleaning')">
+                            <input type="radio" name="service" id="cleaning" value="cleaning">
+                            <label for="cleaning">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <path d="M3 3h18v18H3zM8 12h8M12 8v8"/>
+                                </svg>
+                                <span>Cleaning</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Problem Description -->
+                <section class="form-section">
+                    <h2>Describe Your Problem</h2>
+                    <div class="form-group">
+                        <label for="problem-title">Problem Title</label>
+                        <input type="text" id="problem-title" placeholder="Brief description of the issue">
+                    </div>
+                    <div class="form-group">
+                        <label for="problem-description">Detailed Description</label>
+                        <textarea id="problem-description" rows="4" placeholder="Please describe the issue in detail..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="urgency">Urgency Level</label>
+                        <select id="urgency">
+                            <option value="low">Low - Can wait a few days</option>
+                            <option value="medium">Medium - Within 2-3 days</option>
+                            <option value="high">High - Within 24 hours</option>
+                            <option value="emergency">Emergency - As soon as possible</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- Photo Upload -->
+                <section class="form-section">
+                    <h2>Upload Photos (Optional)</h2>
+                    <div class="upload-area" onclick="document.getElementById('photo-upload').click()">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p>Click to upload photos or drag and drop</p>
+                        <p class="upload-hint">PNG, JPG up to 10MB</p>
+                    </div>
+                    <input type="file" id="photo-upload" multiple accept="image/*" style="display: none;" onchange="handlePhotoUpload(event)">
+                    <div id="photo-preview" class="photo-preview"></div>
+                </section>
+
+                <!-- Time and Date Selection -->
+                <section class="form-section">
+                    <h2>Preferred Time</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="service-date">Preferred Date</label>
+                            <input type="date" id="service-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="service-time">Preferred Time</label>
+                            <select id="service-time">
+                                <option value="morning">Morning (9 AM - 12 PM)</option>
+                                <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                                <option value="evening">Evening (4 PM - 7 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Service Address -->
+                <section class="form-section">
+                    <h2>Service Address</h2>
+                    <div class="saved-addresses-section">
+                        <div class="address-options">
+                            <label class="address-option">
+                                <input type="radio" name="address" value="home" checked>
+                                <div class="address-card-small">
+                                    <h4>Home</h4>
+                                    <p>123 Main Street, Apt 4B<br>Mumbai, Maharashtra 400001</p>
+                                </div>
+                            </label>
+                            <label class="address-option">
+                                <input type="radio" name="address" value="hostel">
+                                <div class="address-card-small">
+                                    <h4>Hostel&PG</h4>
+                                    <p>456 College Road, Room 203<br>Pune, Maharashtra 411001</p>
+                                </div>
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-outline" onclick="addNewAddress()">Add New Address</button>
+                    </div>
+                </section>
+
+                <!-- Submit Button -->
+                <section class="form-section">
+                    <button class="btn btn-primary btn-large" onclick="submitServiceRequest()">Confirm and Continue</button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 FIXit Technology Inc. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
